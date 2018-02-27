@@ -11,5 +11,5 @@ RUN paxctl -cspermx $(which java)
 
 EXPOSE 9092
 
-CMD /kafka/$KAFKA_RELEASE_FILENAME/bin/kafka-server-start.sh /kafka/$KAFKA_RELEASE_FILENAME/config/server.properties 2>&1 > /dev/null &
+CMD /kafka/$KAFKA_RELEASE_FILENAME/bin/kafka-server-start.sh /kafka/$KAFKA_RELEASE_FILENAME/config/server.properties 2>&1 > /dev/null
 

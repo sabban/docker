@@ -11,4 +11,4 @@ RUN paxctl -cspermx $(which java)
 
 EXPOSE 2181
 
-CMD /kafka/$KAFKA_RELEASE_FILENAME/bin/zookeeper-server-start.sh /kafka/$KAFKA_RELEASE_FILENAME/config/zookeeper.properties 2>&1 > /dev/nul]
+CMD /kafka/$KAFKA_RELEASE_FILENAME/bin/zookeeper-server-start.sh /kafka/$KAFKA_RELEASE_FILENAME/config/zookeeper.properties 2>&1 > /dev/null
