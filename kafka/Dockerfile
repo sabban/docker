@@ -3,7 +3,7 @@ FROM openjdk:8-jre
 ENV KAFKA_RELEASE_FILENAME="kafka_2.12-1.0.0"
 ENV KAFKA_RELEASE_VERSION="1.0.0"
 
-RUN apt-get update && apt-get install -y netcat paxctl golang-1.8-go git
+RUN apt-get update && apt-get install -y netcat paxctl supervisor
 RUN wget http://mirrors.ircam.fr/pub/apache/kafka/$KAFKA_RELEASE_VERSION/$KAFKA_RELEASE_FILENAME.tgz -O $KAFKA_RELEASE_FILENAME.tgz
 RUN tar zxvf $KAFKA_RELEASE_FILENAME.tgz -C /
 RUN mv /$KAFKA_RELEASE_FILENAME /kafka
