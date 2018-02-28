@@ -14,7 +14,7 @@ ADD supervisor/zookeeper.conf /etc/supervisor/conf.d/
 
 EXPOSE 2181 9092
 
-RUN supervisord -c /etc/supervisor/supervisord.conf &&  until echo test | nc 127.0.0.1 2181; do sleep 0.1; done  && until echo test | nc 127.0.0.1 9092; do sleep 0.1; done && /kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test 
+RUN supervisord -c /etc/supervisor/supervisord.conf &&  until echo test | nc 127.0.0.1 2181; do sleep 0.1; done  && until echo test | nc 127.0.0.1 9092; do sleep 0.1; done && /kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic chan0.raw
 
 RUN supervisorctl shutdown
 
