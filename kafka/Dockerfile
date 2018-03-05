@@ -2,7 +2,7 @@ FROM openjdk:8-jre
 
 ENV KAFKA_RELEASE_FILENAME="kafka_2.12-1.0.0"
 ENV KAFKA_RELEASE_VERSION="1.0.0"
-ENV TOPICS="local0.raw cron.parsed nginx.parsed ssh.parsed sudo.parsed suhosin.parsed"
+ENV TOPICS="local0.raw local1.raw local2.raw local3.raw local4.raw local5.raw cron.parsed nginx.parsed ssh.parsed sudo.parsed suhosin.parsed apache.parsed auth.parsed unparsed"
 
 RUN apt-get update && apt-get install -y netcat paxctl supervisor
 RUN wget http://mirrors.ircam.fr/pub/apache/kafka/$KAFKA_RELEASE_VERSION/$KAFKA_RELEASE_FILENAME.tgz -O $KAFKA_RELEASE_FILENAME.tgz
