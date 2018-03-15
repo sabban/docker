@@ -19,4 +19,5 @@ EXPOSE 2181 9092
 
 # RUN supervisorctl shutdown
 
+
 CMD supervisord -n
