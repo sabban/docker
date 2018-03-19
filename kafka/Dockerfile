@@ -19,6 +19,4 @@ EXPOSE 2181 9092
 
 # RUN supervisorctl shutdown
 
-RUN /kafka/bin/kafka-server-stop.sh
-
-CMD supervisord -n
+CMD /kafka/bin/kafka-server-start.sh /kafka/config/server.properties
