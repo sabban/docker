@@ -14,4 +14,4 @@ EXPOSE 9092
 
 RUN sed -i 's/localhost/zookeeper/g' /kafka/config/server.properties
 
-CMD /kafka/bin/kafka-server-start.sh /kafka/config/server.properties
+CMD nc -l -p 10000 && cat $CI_PROJECT_DIR/hosts > /etc/hosts ; /kafka/bin/kafka-server-start.sh /kafka/config/server.properties
