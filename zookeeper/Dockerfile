@@ -10,8 +10,11 @@ RUN tar zxvf $KAFKA_RELEASE_FILENAME.tgz -C /
 RUN mv /$KAFKA_RELEASE_FILENAME /kafka
 RUN paxctl -cspermx $(which java)
 
-EXPOSE 9092
 
-RUN sed -i 's/localhost/zookeeper/g' /kafka/config/server.properties
+EXPOSE 2181
 
-CMD /kafka/bin/kafka-server-start.sh /kafka/config/server.properties
+# RUN supervisord -c /etc/supervisor/supervisord.conf &&  until echo test | nc 127.0.0.1 2181; do sleep 0.1; done  && until echo test | nc 127.0.0.1 9092; do sleep 0.1; done && for i in $TOPICS; do /kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic $i ; done
+
+# RUN supervisorctl shutdown
+
+CMD /kafka/bin/zookeeper-server-start.sh /kafka/config/zookeeper.properties
