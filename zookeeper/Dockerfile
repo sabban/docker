@@ -17,4 +17,4 @@ EXPOSE 2181
 
 # RUN supervisorctl shutdown
 
-CMD nc -l -p 10000 && cat $CI_PROJECT_DIR/hosts > /etc/hosts ; /kafka/bin/zookeeper-server-start.sh /kafka/config/zookeeper.properties
+CMD nc -l -p 10000 && cat $CI_PROJECT_DIR/hosts > /etc/hosts ; rm -rf /tmp/zookeeper && /kafka/bin/zookeeper-server-start.sh /kafka/config/zookeeper.properties
